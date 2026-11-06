@@ -8,7 +8,7 @@
 
 # Basic Site Settings 
 locale                   : "zh-CN"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "mint" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Bronya-ling's Notes"
 title_separator          : "-"
 name                     : &name "Bronya-ling"
@@ -26,11 +26,11 @@ author:
   avatar           : "profile.png"
   name             : "FangxunWu"
   pronouns         : # example: "she/her"  
-  bio              : "Concise notes"
+  bio              : "记录一些学习过程中遇到的问题。向Peper学习，无限进步！"
   location         : "Earth"
   employer         : # "Red Brick University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : # "none@example.org" 
 
   # Academic websites
   academia         : # URL
