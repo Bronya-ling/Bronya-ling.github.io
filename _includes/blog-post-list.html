@@ -1,0 +1,22 @@
+<!-- 首页、归档和标签页共用文章摘要，保持链接与展示方式一致。 -->
+<div class="post-list">
+  {% for post in include.posts %}
+    <article class="post-summary">
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+        <span>{{ site.name }}</span>
+        {% if post.title contains 'Blog Post' %}<span class="sample-label">模板示例</span>{% endif %}
+      </div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <div class="tag-list">
+        {% for tag in post.tags %}
+          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 160 }}</p>
+      <a class="read-more" href="{{ post.url | relative_url }}">阅读全文 <span aria-hidden="true">→</span></a>
+    </article>
+  {% else %}
+    <p class="empty-state">这里准备好了，等待第一篇记录。</p>
+  {% endfor %}
+</div>

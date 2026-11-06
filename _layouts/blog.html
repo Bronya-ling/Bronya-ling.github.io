@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{ site.locale | replace: '_', '-' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% unless page.blog_home %}{{ page.title | escape }} · {% endunless %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta name="theme-color" content="#886348">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" type="image/jpeg" href="{{ site.author.avatar | prepend: '/images/' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+    {% feed_meta %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到正文</a>
+    <!-- 侧栏在桌面端固定，窄屏时转为页面顶部导航。 -->
+    <aside class="blog-sidebar">
+      <div class="sidebar-profile">
+        <a class="avatar-link" href="{{ '/' | relative_url }}" aria-label="返回首页">
+          <img class="blog-avatar" src="{{ site.author.avatar | prepend: '/images/' | relative_url }}"
+               alt="{{ site.name | escape }} 的头像" width="112" height="112">
+        </a>
+        <a class="site-name" href="{{ '/' | relative_url }}">{{ site.name }}</a>
+        <p class="site-tagline">{{ site.blog_tagline }}</p>
+        <span class="profile-divider" aria-hidden="true"></span>
+        <nav class="blog-nav" aria-label="主导航">
+          {% for link in site.data.navigation.main %}
+            <a href="{{ link.url | relative_url }}"{% if page.url == link.url %} aria-current="page"{% elsif page.blog_home and link.url == '/' %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          {% endfor %}
+        </nav>
+        <div class="sidebar-social">
+          <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub 个人主页">GitHub <span aria-hidden="true">↗</span></a>
+          <span aria-hidden="true">·</span>
+          <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        </div>
+      </div>
+      <footer class="sidebar-footer">
+        <p>慢慢学习，慢慢记录。</p>
+        <p>© {{ site.time | date: '%Y' }} {{ site.name }}</p>
+        <p>Powered by Jekyll · Inspired by LOFFER</p>
+      </footer>
+    </aside>
+    <div class="blog-main">
+      <main id="main" class="content-panel" tabindex="-1">
+        <header class="page-heading">
+          {% if page.blog_home %}
+            <p class="eyebrow">LEARNING NOTES</p>
+            <h1>我的学习笔记</h1>
+            <p class="heading-description">记录学习过程中遇到的困难与解决方案。</p>
+            <div class="section-label"><span>最新文章</span><span>{{ site.posts | size }} 篇记录</span></div>
+          {% else %}
+            <p class="eyebrow">BRONYA-LING'S NOTES</p>
+            {% unless page.hide_title %}<h1>{{ page.title }}</h1>{% endunless %}
+          {% endif %}
+        </header>
+        {{ content }}
+      </main>
+      <footer class="mobile-footer">© {{ site.time | date: '%Y' }} {{ site.name }} · Powered by Jekyll</footer>
+    </div>
+  </body>
+</html>

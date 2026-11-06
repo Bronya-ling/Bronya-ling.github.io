@@ -12,10 +12,10 @@ site_theme               : "mint" # The available themes options are "default", 
 title                    : "Bronya-ling's Notes"
 title_separator          : "-"
 name                     : &name "Bronya-ling"
-description              : &description "Briefly record the possible problems that may arise in the learning process"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Bronya-ling 的学习笔记，记录学习过程中遇到的困难与解决方案。"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://bronya-ling.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Bronya-ling/Bronya-ling.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -23,10 +23,10 @@ repository               : "Bronya-ling/Bronya-ling.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "figure1.jpg"
   name             : "FangxunWu"
   pronouns         : # example: "she/her"  
-  bio              : "记录一些学习过程中遇到的问题。向Peper学习，无限进步！"
+  bio              : "在这里写一些学习过程中遇到的困难和解决方案。向 Pepper 学习，无限进步！"
   location         : "Earth"
   employer         : # "Red Brick University"
   uri              : # URL
@@ -95,7 +95,7 @@ publication_category:
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
-future                   : true
+future                   : false
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
@@ -242,7 +242,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: blog-post
       author_profile: false
       read_time: true
       comments: false
@@ -300,8 +300,12 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-# paginate: 5 # amount of posts to show
-# paginate_path: /page:num/
+paginate: 6 # 每页显示的文章数
+paginate_path: /page:num/
+
+# 博客侧栏简介与全屏背景。
+blog_tagline: "在这里写一些学习过程中遇到的困难和解决方案。向 Pepper 学习，无限进步！"
+blog_background: "figure2.jpg"
 timezone: Asia/Shanghai # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 

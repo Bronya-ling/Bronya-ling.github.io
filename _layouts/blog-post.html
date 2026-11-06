@@ -1,0 +1,21 @@
+---
+layout: blog
+---
+<!-- 文章页复用博客外壳，正文由 Jekyll 的 Markdown 转换器生成。 -->
+<article class="post-content">
+  <div class="post-meta">
+    <span>{{ site.name }}</span>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+  </div>
+  <div class="tag-list">
+    {% for tag in page.tags %}
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {{ content }}
+</article>
+<nav class="post-pagination" aria-label="文章导航">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% endif %}
+  <a href="{{ '/' | relative_url }}">返回首页</a>
+  {% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+</nav>
